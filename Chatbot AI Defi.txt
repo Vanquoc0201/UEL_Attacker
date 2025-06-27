@@ -1,8 +1,8 @@
 npm install @google-cloud/vertexai // thư viện dùng để kết nối BE 
 # Thông tin để kết nối đến Google AI
-GCP_PROJECT_ID="project-node50"
-GCP_LOCATION="us-central1"
-GEMINI_API_KEY="AIzaSyCClhJMekSlhhp7DAONIcCuKSbEpqMVHPI"
+GCP_PROJECT_ID= ""
+GCP_LOCATION=""
+GEMINI_API_KEY=""
 ****B2 : Tạo giao diện chat FE (app/page.tsx)
 "use client";
 
