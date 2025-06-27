@@ -1,0 +1,8 @@
+# Bỏ qua file chứa secret của Streamlit
+.streamlit/secrets.toml
+
+# Bỏ qua các file và thư mục khác do Python tạo ra (nên có)
+__pycache__/
+*.pyc
+.env
+venv/
