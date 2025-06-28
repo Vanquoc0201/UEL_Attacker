@@ -1,12 +1,8 @@
-// components/ui/Sidebar.tsx
-
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LayoutDashboard, CreditCard, BarChart3, ShieldAlert, LogOut } from 'lucide-react';
-
 const navItems = [
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
     { name: 'Credit Card Risk', href: '/credit-card', icon: CreditCard },
@@ -18,7 +14,6 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    // Sidebar có nền đặc, không trong suốt, và đứng yên khi cuộn trang
     <aside className="w-64 flex-shrink-0 h-screen sticky top-0
                    bg-gradient-to-b from-slate-900 to-gray-900
                    border-r border-white/10 flex flex-col">
@@ -55,8 +50,6 @@ export default function Sidebar() {
           })}
         </ul>
       </nav>
-
-      {/* ... Phần Logout giữ nguyên ... */}
       <div className="p-4 border-t border-white/10">
         <Link
           href="/logout"

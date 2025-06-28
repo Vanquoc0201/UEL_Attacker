@@ -1,10 +1,6 @@
-// app/admin/page.tsx (hoặc file dashboard của bạn)
-
 'use client';
-
 import { useRouter } from "next/navigation";
 import { BarChart3, CreditCard, ShieldAlert } from "lucide-react";
-
 export default function AdminDashboardPage() {
   const router = useRouter();
 
@@ -33,15 +29,11 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    // Div này chịu trách nhiệm cho background và lớp phủ của riêng trang này
     <div
       className="relative h-full w-full bg-cover bg-center p-10 flex items-center justify-center"
       style={{ backgroundImage: "url('/background.png')" }}
     >
-      {/* Lớp phủ tối */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>
-
-      {/* Nội dung trang được đặt trên lớp phủ */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <h1 
           className="text-5xl font-bold text-white mb-16 text-center" 
