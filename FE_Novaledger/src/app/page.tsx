@@ -9,7 +9,7 @@ export default function AdminDashboardPage() {
       title: "Credit Card Risk",
       description: "Monitor and analyze suspicious card transactions.",
       icon: <CreditCard className="text-cyan-300" size={40} />,
-      href: "/credit-card",
+      href: "/credit-card-risk",
       auraColor: "shadow-cyan-500/10 hover:shadow-cyan-400/20",
     },
     {
