@@ -34,7 +34,7 @@ export const TransactionRow = ({ transaction, onPredict, isPredicting }: Transac
         <button
           onClick={() => onPredict(transaction.id)}
           disabled={isThisRowPredicting || transaction.status === 'Low Risk' || transaction.status === 'High Risk'}
-          className="bg-cyan-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-cyan-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-500"
+          className="bg-purple-500 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-purple-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-500"
         >
           {isThisRowPredicting ? 'Predicting...' : 'Predict'}
         </button>

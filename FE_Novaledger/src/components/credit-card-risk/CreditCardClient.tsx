@@ -1,11 +1,8 @@
-// src/components/credit-card-risk/CreditCardClient.tsx
-
 'use client';
 import { useState, useMemo, FC } from 'react';
 import { predictCreditCardRisk } from '@/services/creditCardService';
 import type { CreditCardTransaction, CreditCardTransactionStatus } from '@/types/credit-card';
 import { Search, Loader2, AlertTriangle, CheckCircle2 } from 'lucide-react';
-
 const initialTransactions: CreditCardTransaction[] = [
   { id: 'TXN-C-981', cardholderId: 'USER432', amount: 125.50, merchant: 'Online Retail Inc.', category: 'E-commerce', location: 'New York, NY', status: 'Not Predicted' },
   { id: 'TXN-C-982', cardholderId: 'USER771', amount: 2500.00, merchant: 'Luxury Goods', category: 'Retail', location: 'Los Angeles, CA', status: 'Not Predicted' },
@@ -13,7 +10,6 @@ const initialTransactions: CreditCardTransaction[] = [
   { id: 'TXN-C-984', cardholderId: 'USER432', amount: 850.20, merchant: 'Electronics Hub', category: 'Electronics', location: 'New York, NY', status: 'Not Predicted' },
   { id: 'TXN-C-985', cardholderId: 'USER999', amount: 3.50, merchant: 'Vending Machine', category: 'Other', location: 'San Francisco, CA', status: 'Not Predicted' },
 ];
-
 const StatusBadge: FC<{ status: CreditCardTransactionStatus, confidence?: number }> = ({ status, confidence }) => {
   const baseClasses = "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium";
   
@@ -97,8 +93,7 @@ export const CreditCardClient = () => {
 
       <div className="overflow-x-auto rounded-lg border border-white/10">
         <table className="min-w-full text-sm text-left text-gray-300">
-          {/* Thay đổi màu chữ tiêu đề ở dòng dưới đây */}
-          <thead className="bg-white/5 text-xs text-red-400 uppercase tracking-wider">
+          <thead className="bg-white/5 text-xs text-cyan-400 uppercase tracking-wider">
             <tr>
               <th scope="col" className="p-4">Transaction ID</th>
               <th scope="col" className="p-4">Cardholder ID</th>

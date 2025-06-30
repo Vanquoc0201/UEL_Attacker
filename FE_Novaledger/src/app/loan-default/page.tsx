@@ -7,7 +7,7 @@ const LoanDefaultPage = () => {
       style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
     >
       <div className="flex items-center gap-3 mb-6">
-        <BarChart3 className="h-7 w-7 text-cyan-400" />
+        <BarChart3 className="h-7 w-7 text-purple-400" />
         <div>
           <h1 className="text-2xl font-bold text-white">Loan Default Prediction</h1>
           <p className="text-gray-400 mt-1 text-sm">Analyze transactions and predict the probability of loan default.</p>
