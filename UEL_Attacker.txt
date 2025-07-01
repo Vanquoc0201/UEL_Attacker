@@ -1,0 +1,6 @@
+"Chúng ta giữ lại cả 3 models. Chúng là 3 trụ cột sức mạnh của dự án.
+Nhưng thay vì làm 3 giao diện riêng biệt, nhàm chán, chúng ta sẽ xây dựng MỘT giao diện chung duy nhất, gọi là Bảng Điều Khiển Điều Tra (Forensics Dashboard).
+Khi cần phân tích rửa tiền, Bảng điều khiển này sẽ hiện ra biểu đồ mạng lưới phức tạp.
+Khi cần phân tích khả năng vay nợ, Bảng điều khiển này sẽ hiện ra một báo cáo thẩm định chi tiết.
+Khi có giao dịch thẻ đáng ngờ, Bảng điều khiển này sẽ hiện ra một cảnh báo và biên bản vụ việc.
+Cách làm này sẽ hợp nhất tất cả sức mạnh của team ta vào một điểm. Nó cho thấy sản phẩm của chúng ta không phải là một mớ công cụ rời rạc, mà là một Hệ Thống An Ninh Tài Chính thông minh, có tính liên kết cao. Nó chuyên nghiệp và ấn tượng hơn gấp 10 lần."
