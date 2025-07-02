@@ -1,3 +1,4 @@
+"use client";
 import ForensicsClient from "@/components/forensics/ForensicsClient";
 interface ForensicsPageProps {
   params: {
