@@ -1,5 +1,0 @@
-# Ignore thư viện
-node_modules/
-
-# Ignore lockfile nếu không muốn theo dõi
-package-lock.json
