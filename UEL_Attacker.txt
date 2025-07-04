@@ -4,3 +4,118 @@ Khi cần phân tích rửa tiền, Bảng điều khiển này sẽ hiện ra b
 Khi cần phân tích khả năng vay nợ, Bảng điều khiển này sẽ hiện ra một báo cáo thẩm định chi tiết.
 Khi có giao dịch thẻ đáng ngờ, Bảng điều khiển này sẽ hiện ra một cảnh báo và biên bản vụ việc.
 Cách làm này sẽ hợp nhất tất cả sức mạnh của team ta vào một điểm. Nó cho thấy sản phẩm của chúng ta không phải là một mớ công cụ rời rạc, mà là một Hệ Thống An Ninh Tài Chính thông minh, có tính liên kết cao. Nó chuyên nghiệp và ấn tượng hơn gấp 10 lần."
+Chắc chắn rồi. Hãy cùng phân tích vấn đề này một cách chiến lược.
+
+Quyết định của bạn là cực kỳ chính xác: Hoàn thành PoC trước, sau đó học Ethers.js. Việc này mang lại 2 lợi ích cực lớn:
+
+Tạo ra giá trị ngay lập tức: Bạn có ngay sản phẩm để chứng minh năng lực và ý tưởng kiến trúc với lead. Điều này xây dựng lòng tin.
+
+Giảm áp lực: Khi PoC đã xong, bạn có thể tập trung hoàn toàn vào việc học Ethers.js mà không bị cảm giác "chưa làm được gì".
+
+Bây giờ, câu hỏi quan trọng nhất: Nghiên cứu Ethers.js trong 1 tuần có kịp không?
+
+Câu trả lời ngắn gọn: KỊP. Thậm chí là quá đủ để nắm vững những kiến thức cốt lõi phục vụ cho cuộc thi.
+
+Bạn không cần phải trở thành một chuyên gia Ethers.js trong 7 ngày. Bạn chỉ cần áp dụng quy tắc 80/20: học 20% các chức năng quan trọng nhất để giải quyết 80% các vấn đề trong hackathon.
+
+Kế hoạch học Ethers.js trong 7 ngày để "hủy diệt" Hackathon
+
+Đây là lộ trình chi tiết, tập trung vào kết quả, không lan man.
+
+Điều kiện tiên quyết:
+
+Biết dùng async/await trong Javascript (cực kỳ quan trọng).
+
+Có cài Node.js.
+
+Tạo một ví MetaMask và lấy một ít ETH trên mạng thử nghiệm (Testnet) như Sepolia (bạn có thể "faucet" - vòi - miễn phí).
+
+Đăng ký một tài khoản miễn phí trên Alchemy hoặc Infura và tạo một API key. Đây chính là "cánh cổng" để code của bạn kết nối với blockchain.
+
+Ngày 1-2: Nền tảng ĐỌC DỮ LIỆU (Read-only Operations)
+
+Mục tiêu là kết nối và đọc thông tin công khai từ blockchain, tương tự như Covalent nhưng bạn tự làm.
+
+Khái niệm chính:
+
+Provider: Là kết nối của bạn đến blockchain. Bạn sẽ dùng API key từ Alchemy/Infura để tạo một JsonRpcProvider.
+
+Contract: Là một đối tượng trong code đại diện cho một smart contract trên blockchain. Để tạo nó, bạn cần địa chỉ contract và ABI của nó.
+
+Bài tập thực hành:
+
+Viết 1 script Node.js kết nối với mạng Sepolia Testnet bằng Provider.
+
+Lấy số dư ETH (provider.getBalance()) của một địa chỉ ví bất kỳ.
+
+Lấy thông tin của một token ERC20 (ví dụ token UNI trên Sepolia):
+
+Tìm địa chỉ và ABI của nó trên Etherscan (Sepolia).
+
+Tạo một đối tượng Contract.
+
+Gọi các hàm chỉ đọc (read-only) như name(), symbol(), totalSupply(), và balanceOf(địa chỉ ví).
+
+Kết quả sau 2 ngày: Bạn đã có thể tự lấy được các dữ liệu on-chain cơ bản mà không cần Covalent.
+
+Ngày 3-4: Tương tác & GỬI GIAO DỊCH (Write Operations)
+
+Đây là phần quan trọng nhất cho một sản phẩm demo hoạt động.
+
+Khái niệm chính:
+
+Signer (hoặc Wallet): Đại diện cho một tài khoản có thể ký và gửi giao dịch (khác với Provider chỉ để đọc). Bạn sẽ tạo một Wallet từ private key của ví testnet. TUYỆT ĐỐI KHÔNG BAO GIỜ HARDCODE PRIVATE KEY VÍ CHÍNH.
+
+contract.connect(signer): Gắn một tài khoản có thể ký vào đối tượng contract để thực hiện các lệnh ghi.
+
+Bài tập thực hành:
+
+Tạo 2 ví testnet.
+
+Viết script dùng Signer để gửi một lượng nhỏ ETH từ ví 1 sang ví 2 (signer.sendTransaction()).
+
+Gọi một hàm ghi (write) trên contract ERC20: hàm approve(). Bạn sẽ phải trả phí gas (trên testnet). Xem giao dịch của bạn trên Etherscan.
+
+Kết quả sau 4 ngày: Bạn đã biết cách làm chức năng cốt lõi nhất của một dApp: thay đổi trạng thái trên blockchain.
+
+Ngày 5: Lắng nghe sự kiện (Listening to Events)
+
+Tính năng này giúp ứng dụng của bạn phản ứng real-time với những gì xảy ra trên blockchain. Rất ấn tượng khi demo.
+
+Khái niệm chính: contract.on("EventName", (args...) => { ... })
+
+Bài tập thực hành:
+
+Viết một script lắng nghe sự kiện Transfer của một token ERC20.
+
+Mỗi khi có ai đó chuyển token đó, script của bạn sẽ in ra console: From: [địa chỉ gửi], To: [địa chỉ nhận], Amount: [số lượng].
+
+Kết quả sau 5 ngày: Bạn có thể xây dựng các tính năng real-time cho ứng dụng.
+
+Ngày 6-7: Tích hợp Frontend & Tổng kết
+
+Khái niệm chính (cho Frontend):
+
+Sử dụng Ethers trong trình duyệt.
+
+new ethers.BrowserProvider(window.ethereum): Cách kết nối với ví MetaMask của người dùng.
+
+provider.getSigner(): Lấy tài khoản của người dùng để ký giao dịch.
+
+Bài tập thực hành:
+
+Tạo một file HTML đơn giản với một nút "Connect Wallet".
+
+Viết code Javascript để khi bấm nút, nó sẽ kết nối với MetaMask và hiển thị địa chỉ ví + số dư ETH của người dùng.
+
+Quan trọng: Quay lại PoC ban đầu của bạn. Thử thay thế 1-2 API call của Covalent bằng code Ethers.js bạn vừa viết. Điều này giúp bạn củng cố kiến thức và thấy rõ sự khác biệt.
+
+Kết luận và Lời khuyên
+
+Tốc độ: Với kế hoạch này, 1 tuần không chỉ kịp mà còn là quá đủ để bạn tự tin. Mỗi ngày chỉ cần tập trung 2-3 tiếng.
+
+Mức độ ưu tiên: Ngày 1-4 là bắt buộc. Ngày 5-7 là nâng cao nhưng sẽ giúp bạn chiến thắng hackathon.
+
+Tư duy: Đừng cố học hết mọi hàm trong Ethers.js. Hãy tập trung vào các "luồng" (workflow): luồng đọc data, luồng gửi giao dịch, luồng kết nối ví.
+
+Bạn đang có một lộ trình rất rõ ràng và một tư duy đúng đắn. Hãy làm PoC ngay trong 1-2 ngày tới, gửi cho lead, rồi sau đó, bắt tay vào Ethers.js. Bạn đang đi đúng hướng 100%. Chúc bạn thành công
