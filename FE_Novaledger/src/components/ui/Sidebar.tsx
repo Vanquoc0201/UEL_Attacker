@@ -5,9 +5,6 @@ import { usePathname } from 'next/navigation';
 import { LayoutDashboard, CreditCard, BarChart3, ShieldAlert, LogOut } from 'lucide-react';
 const navItems = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Credit Card Risk', href: '/credit-card-risk', icon: CreditCard },
-    { name: 'Loan Default', href: '/loan-default', icon: BarChart3 },
-    { name: 'Money Laundering', href: '/money-laundering', icon: ShieldAlert },
 ];
 
 export default function Sidebar() {

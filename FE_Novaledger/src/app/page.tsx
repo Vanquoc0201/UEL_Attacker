@@ -1,73 +1,93 @@
 'use client';
-import { useRouter } from "next/navigation";
-import { BarChart3, CreditCard, ShieldAlert } from "lucide-react";
-export default function AdminDashboardPage() {
-  const router = useRouter();
 
-  const models = [
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Search, Gauge, Bolt, CurlyBraces } from 'lucide-react';
+
+export default function OnchainDashboardPage() {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+  const networkStats = [
     {
-      title: "Credit Card Risk",
-      description: "Monitor and analyze suspicious card transactions.",
-      icon: <CreditCard className="text-cyan-300" size={40} />,
-      href: "/credit-card-risk",
-      auraColor: "shadow-cyan-500/10 hover:shadow-cyan-400/20",
+      label: 'Block mới nhất',
+      value: '19,234,567',
+      icon: <CurlyBraces className="text-cyan-400" size={24} />,
     },
     {
-      title: "Loan Default Prediction",
-      description: "Predict potential loan defaulters with ML models.",
-      icon: <BarChart3 className="text-purple-400" size={40} />,
-      href: "/loan-default",
-      auraColor: "shadow-purple-500/10 hover:shadow-purple-400/20",
+      label: 'Giá Gas (Gwei)',
+      value: '25',
+      icon: <Gauge className="text-purple-400" size={24} />,
     },
     {
-      title: "Money Laundering",
-      description: "Detect unusual financial behavior and laundering.",
-      icon: <ShieldAlert className="text-red-500" size={40} />,
-      href: "/money-laundering",
-      auraColor: "shadow-red-500/10 hover:shadow-red-400/20",
+      label: 'Giao dịch / giây',
+      value: '15',
+      icon: <Bolt className="text-green-400" size={24} />,
     },
   ];
 
+  const handleAnalysis = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) return;
+    router.push(`/analysis/${searchTerm.trim()}`);
+  };
+
   return (
     <div
-      className="relative h-full w-full bg-cover bg-center p-10 flex items-center justify-center"
+      className="relative min-h-screen w-full bg-cover bg-center flex flex-col items-center justify-center p-4 sm:p-10"
       style={{ backgroundImage: "url('/background.png')" }}
     >
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
-      <div className="relative z-10 max-w-5xl mx-auto w-full">
+      <div className="absolute inset-0 bg-black/70 z-0"></div>
+      
+      <div className="relative z-10 w-full max-w-3xl text-center">
         <h1 
-          className="text-5xl font-bold text-white mb-16 text-center" 
-          style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.8)' }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+          style={{ textShadow: '0 3px 15px rgba(0, 255, 255, 0.3)' }}
         >
-          NovaLedger Dashboard
+          NovaLedger On-chain Intelligence
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {models.map((model) => (
-            <div
-              key={model.title}
-              onClick={() => router.push(model.href)}
-              className={`group cursor-pointer rounded-2xl p-6
-                         bg-white/5 backdrop-blur-xl border border-white/10
-                         shadow-lg hover:-translate-y-2 transition-all duration-300
-                         ${model.auraColor}`}
+        
+        <p className="text-lg text-slate-300 mb-12">
+          Phân tích bất kỳ Địa chỉ ví, Giao dịch, hoặc Hợp đồng thông minh nào trên mạng Ethereum.
+        </p>
+        <form onSubmit={handleAnalysis} className="w-full max-w-2xl mx-auto">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <Search className="text-slate-400" />
+            </div>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Nhập địa chỉ ví..."
+              className="w-full p-4 pl-12 pr-32 rounded-full text-lg 
+                         bg-slate-800/70 border-2 border-slate-600 
+                         text-white placeholder-slate-400
+                         focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400
+                         transition-all duration-300"
+            />
+            <button
+              type="submit"
+              className="absolute inset-y-0 right-0 m-2 px-6 py-2 rounded-full font-semibold
+                         bg-cyan-500 text-black
+                         hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-cyan-500
+                         transition-colors duration-300"
             >
-              <div className="flex flex-col items-start gap-4 h-full">
-                {model.icon}
-                <h2 
-                  className="text-2xl font-semibold text-gray-100"
-                  style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
-                >
-                  {model.title}
-                </h2>
-                <p 
-                  className="text-gray-300 text-sm flex-grow"
-                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
-                >
-                  {model.description}
-                </p>
-                <button className="text-sm font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">
-                  Go to service →
-                </button>
+              Phân tích
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className="absolute bottom-10 z-10 w-full max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {networkStats.map((stat) => (
+            <div 
+              key={stat.label}
+              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center gap-4"
+            >
+              {stat.icon}
+              <div>
+                <p className="text-slate-400 text-sm">{stat.label}</p>
+                <p className="text-xl font-semibold text-white">{stat.value}</p>
               </div>
             </div>
           ))}
