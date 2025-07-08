@@ -1,5 +1,6 @@
 
 export interface CovalentTransaction {
+  tx_hash?: string;
   block_signed_at: string;
   from_address: string;
   to_address: string | null;

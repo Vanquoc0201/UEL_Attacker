@@ -5,9 +5,10 @@ import { CovalentTransaction, BalanceItem, WalletFeatures } from '@/types/analys
 const COVALENT_API_KEY = process.env.COVALENT_API_KEY!;
 const CHAIN_NAME = 'eth-mainnet';
 const MAX_PAGES_TO_FETCH = 50;
+console.log(`Covalent API Key: ${COVALENT_API_KEY ? 'Loaded' : 'Not Loaded'}`);
 
 const headers = {
-  'Authorization': `Basic ${Buffer.from(COVALENT_API_KEY + ':').toString('base64')}`
+  Authorization: `Bearer ${COVALENT_API_KEY}`,
 };
 
 async function fetchAllTransactions(address: string): Promise<CovalentTransaction[]> {
