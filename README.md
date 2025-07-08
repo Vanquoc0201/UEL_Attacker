@@ -1,7 +1,4 @@
 # NovaLedger - On-chain Intelligence Platform
-
-![NovaLedger Logo](./FE_Novaledger/public/logo.png)
-
 *Hệ thống phân tích và dự đoán rủi ro On-chain ứng dụng Trí tuệ nhân tạo, được phát triển cho cuộc thi UEL Attacker 2025.*
 
 ---
@@ -21,14 +18,14 @@ NovaLedger được xây dựng xoay quanh 3 trang chính, tạo nên một tr�
 - **Tính năng:**
     - Một thanh tìm kiếm lớn, nổi bật cho phép người dùng nhập vào bất kỳ địa chỉ ví, mã giao dịch (TxHash), hoặc tên miền ENS nào.
     - Hiển thị các thông số real-time của mạng lưới Ethereum, tạo cảm giác đây là một công cụ "sống".
-![Homepage Screenshot](./FE_Novaledger/public//HomePage.png)
+![Homepage Screenshot](./FE_Novaledger/public/HomePage.png)
 
 #### 2. **Trang tổng quan - Ethereum Monitoring Station** (`DashboardPage`)
 - **Mục đích:** Cung cấp một "phòng điều khiển" cho người dùng chuyên sâu, hiển thị bức tranh toàn cảnh về các hoạt động rủi ro đang diễn ra trên mạng lưới.
 - **Tính năng:**
     - Các biểu đồ trực quan hóa xu hướng rủi ro theo thời gian và phân loại các loại hoạt động on-chain.
     - Một danh sách các giao dịch đáng ngờ được cập nhật liên tục, cho phép người dùng click vào để xem phân tích chi tiết.
-![Dashboard Screenshot](./FE_Novaledger/public//DashboardPage.png)
+![Dashboard Screenshot](./FE_Novaledger/public/DashboardPage.png)
 
 #### 3. **Trang phân tích - Deep Dive Forensics View** (`AnalysisPage`)
 - **Mục đích:** Đây là "trái tim" của sản phẩm, nơi hiển thị kết quả phân tích chi tiết sau khi người dùng thực hiện tìm kiếm.
@@ -36,7 +33,7 @@ NovaLedger được xây dựng xoay quanh 3 trang chính, tạo nên một tr�
     - **Biểu đồ Gauge:** Trực quan hóa điểm số rủi ro tổng thể (từ 0-100).
     - **Các yếu tố rủi ro:** Liệt kê chi tiết các lý do tại sao một địa chỉ hoặc giao dịch lại bị coi là rủi ro.
     - **Sơ đồ mạng lưới tương tác:** Một biểu đồ trực quan hóa các mối quan hệ và tương tác của đối tượng đang được phân tích với các ví và hợp đồng khác.
-![Analysis Screenshot](./FE_Novaledger/public//AnalysisPage.png)
+![Analysis Screenshot](./FE_Novaledger/public/AnalysisPage.png)
 
 ## 🛠️ Công nghệ sử dụng
 

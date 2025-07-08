@@ -59,7 +59,7 @@ export default async function AnalysisPage({ params }: { params: { searchTerm: s
   const generalStats = { 'Total Txs': features['total transactions (including tnx to create contract)'], 'Sent Txs': features['Sent tnx'], 'Received Txs': features['Received Tnx'], 'Unique Sent To': features['Unique Sent To Addresses'], 'Unique Received From': features['Unique Received From Addresses'], 'Created Contracts': features['Number of Created Contracts'], };
   const timeStats = { 'Active Time (Mins)': features['Time Diff between first and last (Mins)'], 'Avg Time Sent (Mins)': features['Avg min between sent tnx'], 'Avg Time Received (Mins)': features['Avg min between received tnx'], };
   const ethValueStats = { 'Total ETH Sent': features['total Ether sent'], 'Total ETH Received': features['total ether received'], 'Current ETH Balance': features['total ether balance'], 'Avg ETH Sent': features['avg val sent'], 'Max ETH Sent': features['max val sent'], 'Avg ETH Received': features['avg val received'], };
-  const erc20Stats = { 'Total ERC20 Txs': features['Total ERC20 tnxs'], 'Uniq Sent Tokens': features['ERC20 uniq sent token name'], 'Uniq Rec Tokens': features['ERC20 uniq rec token name'], 'Most Sent Token': features['ERC20 most sent token type'], 'Most Rec Token': features['ERC20_most_rec_token_type'], };
+  const erc20Stats = { 'Total ERC20 Txs': features['Total ERC20 tnxs'], 'Uniq Sent Tokens': features['ERC20 uniq sent token name'], 'Uniq Rec Tokens': features['ERC20 uniq rec token name'], 'Most Sent Token': features['ERC20 most sent token type'], 'Most Rec Token': features['ERC20 most rec token type'], };
 
   return (
     <div className="p-4 md:p-8 text-white">
